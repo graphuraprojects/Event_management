@@ -9,28 +9,21 @@ const CulturalDetails = () => {
 
   return (
     <div className="bg-linear-to-r from-purple-100 via-blue-100 to-pink-100">
-      
       <section className="relative h-[40vh] lg:h-[50vh] overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
-
-  
-
-          <img
-            src={event.image}
-            alt={event.title}
-            className="w-full h-full object-cover object-center"
-          />
-
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-            <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
-              {event.title}
-            </h1>
-            <p className="mt-2 text-lg md:text-xl font-bold">{event.location}</p>
-            <p className="mt-2 text-lg md:text-xl font-semibold">{event.date2}</p>
-          </div>
-
-        </section>
+        <img
+          src={event.image}
+          alt={event.title}
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+          <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
+            {event.title}
+          </h1>
+          <p className="mt-2 text-lg md:text-xl font-bold">{event.location}</p>
+          <p className="mt-2 text-lg md:text-xl font-semibold">{event.date2}</p>
+        </div>
+      </section>
       {/* about event */}
       <section className="flex justify-center">
         <div className="px-8 py-4 max-w-[1050px]">
@@ -41,12 +34,11 @@ const CulturalDetails = () => {
             {event.description}
           </p>
         </div>
-        
       </section>
       {/* schedule and speakers */}
       <section className="flex justify-center">
         <div className="mt-6 px-8 py-4 flex flex-wrap justify-center lg:justify-between gap-4 max-w-[1050px] w-full">
-          <div className="w-full max-w-[400px] h-full flex flex-col max-h-[440px]">
+          <div className="w-full max-w-[400px] flex flex-col ">
             <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-violet-900">
               Schedule
             </h2>
