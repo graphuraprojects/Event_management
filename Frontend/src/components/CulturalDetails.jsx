@@ -38,7 +38,7 @@ const CulturalDetails = () => {
       {/* schedule and speakers */}
       <section className="flex justify-center">
         <div className="mt-6 px-8 py-4 flex flex-wrap justify-center lg:justify-between gap-4 max-w-[1050px] w-full">
-          <div className="w-full max-w-[400px] h-full flex flex-col max-h-[440px]">
+          <div className="w-full max-w-[400px] flex flex-col ">
             <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-violet-900">
               Schedule
             </h2>
