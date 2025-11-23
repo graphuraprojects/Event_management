@@ -4,7 +4,6 @@ import cors from "cors";
 import mongoose from "mongoose";
 import eventRoutes from "./routes/eventRoutes.js";
 import eventsDataRoute from "./routes/eventdataRoutes.js";
-
 import bookingRoutes from "./routes/bookingRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
