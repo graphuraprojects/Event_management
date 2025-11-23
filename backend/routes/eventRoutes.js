@@ -4,7 +4,7 @@ import Event from "../models/Event.js";
 const router = express.Router();
 
 
-router.get("/all", async (req, res) => {
+router.get("/events/all", async (req, res) => {
   try {
     const events = await Event.find();
     res.json({ success: true, events });
@@ -14,7 +14,7 @@ router.get("/all", async (req, res) => {
 });
 
 
-router.post("/add", async (req, res) => {
+router.post("/events/add", async (req, res) => {
   try {
     const newEvent = new Event(req.body);
     await newEvent.save();
@@ -30,7 +30,7 @@ router.post("/add", async (req, res) => {
 });
 
 
-router.put("/update/:id", async (req, res) => {
+router.put("/events/update/:id", async (req, res) => {
   try {
     const updated = await Event.findByIdAndUpdate(
       req.params.id,

@@ -24,7 +24,7 @@ const categories = [
 
 const EventSelection = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-50 via-blue-50 to-pink-50 overflow-hidden p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-50 via-blue-50 to-pink-50 overflow-hidden ">
       {/* Heading Section */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}

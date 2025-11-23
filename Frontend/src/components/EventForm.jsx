@@ -8,7 +8,7 @@ const EventForm = ({ date, onEventAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/events', {
+      await axios.post('/api/events', {
         date: date.toISOString(),
         title,
         description,

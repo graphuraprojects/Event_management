@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
 });
 
 
-router.get("/", async (req, res) => {
+router.get("/eventdata", async (req, res) => {
   try {
     const events = await EventData.find().sort({date: 1});
     res.status(200).json(events);
@@ -57,7 +57,7 @@ router.get("/", async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/eventdata/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const event = await EventData.findById(id);

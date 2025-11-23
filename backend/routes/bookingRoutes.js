@@ -3,7 +3,7 @@ import Booking from "../models/Booking.js";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/booking", async (req, res) => {
   try {
     const booking = new Booking(req.body);
     await booking.save();

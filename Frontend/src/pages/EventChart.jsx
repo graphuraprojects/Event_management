@@ -20,7 +20,7 @@ const EventsLineChart = () => {
   ];
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:5000/api/events/all");
+    const res = await axios.get("/api/events/all");
     const events = res.data.events;
 
     // Count events per month
