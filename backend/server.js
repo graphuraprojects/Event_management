@@ -19,16 +19,16 @@ app.use(express.json());
 app.use("/api", authRoutes);
 
 // Booking routes
-app.use("/api/booking", bookingRoutes);
+app.use("/api", bookingRoutes);
 
 // Contact routes
 app.use("/api", contactRoutes);
 
 // Event Routes
-app.use("/api/events", eventRoutes);
+app.use("/api", eventRoutes);
 
 // Event Data Routes
-app.use("/api/eventdata", eventsDataRoute);
+app.use("/api", eventsDataRoute);
 
 
 mongoose

@@ -19,7 +19,7 @@ const Calendar = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/events/all")
+    axios.get("/api/events/all")
       .then(res => {
         if (res.data.success) setAllEvents(res.data.events);
       })

@@ -8,7 +8,7 @@ const Home1 = () => {
   // Fetch events from backend
   const fetchEvents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/events/all");
+      const res = await axios.get("/api/events/all");
       setEvents(res.data.events);
     } catch (error) {
       console.log("Error fetching events:", error);

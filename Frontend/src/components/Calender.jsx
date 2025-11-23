@@ -16,7 +16,7 @@ const Calendar = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/events/${year}/${month + 1}`);
+      const response = await axios.get(`/api/events/${year}/${month + 1}`);
       setEvents(response.data);
     } catch (error) {
       console.error('Error fetching events:', error);

@@ -12,7 +12,7 @@ const TechCorporate = () => {
   useEffect(() => {
     const loadEvents = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/eventdata");
+        const res = await fetch("/api/eventdata");
         const data = await res.json();
         setEvents(data);
       } catch (error) {

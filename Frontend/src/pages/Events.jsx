@@ -17,7 +17,7 @@ const Events = () => {
   const [editId, setEditId] = useState(null);
 
   const fetchEvents = async () => {
-    const res = await axios.get("http://localhost:5000/api/events/all");
+    const res = await axios.get("/api/events/all");
     setEvents(res.data.events);
   };
 
@@ -31,7 +31,7 @@ const Events = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/api/events/add", form);
+    const res = await axios.post("/api/events/add", form);
     if (res.data.success) {
       setOpenModal(false);
       fetchEvents();
@@ -54,7 +54,7 @@ const Events = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const res = await axios.put(
-      `http://localhost:5000/api/events/update/${editId}`,
+      `/api/events/update/${editId}`,
       form
     );
     if (res.data.success) {
