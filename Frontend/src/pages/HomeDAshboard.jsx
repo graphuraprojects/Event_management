@@ -41,9 +41,10 @@ const Home1 = () => {
     { name: "Cultural", value: categoryCount.Cultural, color: "#A855F7" },
   ];
 
-  // Create Pie Chart Angles
+  // Pie chart logic
   const total = categoryData.reduce((sum, item) => sum + item.value, 0);
   let currentAngle = 0;
+
   const pieSegments = categoryData.map((item) => {
     const angle = total ? (item.value / total) * 360 : 0;
     const percent = total ? ((item.value / total) * 100).toFixed(1) : 0;
@@ -70,89 +71,90 @@ const Home1 = () => {
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row gap-6">
-    {/* Upcoming Events Section */}
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6 w-[70%] h-158">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">
-        Upcoming Events
-      </h2>
+    <div className="w-full flex flex-col lg:flex-row gap-6">
 
-      <div className="space-y-4">
-        {upcomingEvents.length === 0 && (
-          <p className="text-gray-500">No upcoming events.</p>
-        )}
-
-        {upcomingEvents.map((event) => (
-          <div
-            key={event._id}
-            className="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition"
-          >
-            <div className="text-3xl font-bold text-blue-600">
-              {new Date(event.date).getDate()}
-            </div>
-
-            <div className="flex-1">
-              <p className="font-medium text-gray-800">{event.name}</p>
-              <p className="text-sm text-gray-500">Type: {event.type}</p>
-              <p className="text-sm text-gray-500">
-                Attendees: {event.attendees}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* RIGHT SIDE: PIE + LINE CHART */}
-    <div className="w-[30%] h-125 flex flex-col gap-4">
-
-      {/* PIE CHART */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
-          Event Categories Distribution
+      {/* LEFT: UPCOMING EVENTS */}
+      <div className="bg-white rounded-lg shadow-md p-6 w-full lg:w-[70%]">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          Upcoming Events
         </h2>
 
-        <div className="flex items-center justify-center space-x-8">
-          <div className="relative">
-            <svg width="140" height="140" viewBox="0 0 140 140">
-              {pieSegments.map((segment, index) => (
-                <g key={index}>
-                  <path
-                    d={getPiePath(segment.startAngle, segment.endAngle)}
-                    fill={segment.color}
-                    className="cursor-pointer hover:opacity-80 transition-opacity"
-                  />
-                  <title>
-                    {segment.name} ({segment.percentage}%)
-                  </title>
-                </g>
-              ))}
-            </svg>
-          </div>
+        <div className="space-y-4">
+          {upcomingEvents.length === 0 && (
+            <p className="text-gray-500">No upcoming events.</p>
+          )}
 
-          {/* Legend */}
-          <div className="space-y-2">
-            {categoryData.map((item) => (
-              <div key={item.name} className="flex items-center space-x-2">
-                <div
-                  className="w-4 h-4 rounded-full"
-                  style={{ backgroundColor: item.color }}
-                ></div>
-                <span className="text-gray-700">
-                  {item.name} ({item.value})
-                </span>
+          {upcomingEvents.map((event) => (
+            <div
+              key={event._id}
+              className="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition"
+            >
+              <div className="text-3xl font-bold text-blue-600">
+                {new Date(event.date).getDate()}
               </div>
-            ))}
-          </div>
+
+              <div className="flex-1">
+                <p className="font-medium text-gray-800">{event.name}</p>
+                <p className="text-sm text-gray-500">Type: {event.type}</p>
+                <p className="text-sm text-gray-500">
+                  Attendees: {event.attendees}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* LINE CHART BELOW PIE CHART */}
-      <div className="bg-white rounded-lg shadow-md p-3 flex-1 ">
-        <EventsLineChart />
+      {/* RIGHT SIDE: PIE + LINE CHART */}
+      <div className="w-full lg:w-[30%] flex flex-col gap-4">
+
+        {/* PIE CHART */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+            Event Categories Distribution
+          </h2>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+            <div className="relative max-w-[140px]">
+              <svg width="140" height="140" viewBox="0 0 140 140">
+                {pieSegments.map((segment, index) => (
+                  <g key={index}>
+                    <path
+                      d={getPiePath(segment.startAngle, segment.endAngle)}
+                      fill={segment.color}
+                      className="cursor-pointer hover:opacity-80 transition-opacity"
+                    />
+                    <title>
+                      {segment.name} ({segment.percentage}%)
+                    </title>
+                  </g>
+                ))}
+              </svg>
+            </div>
+
+            {/* Legend */}
+            <div className="space-y-2">
+              {categoryData.map((item) => (
+                <div key={item.name} className="flex items-center space-x-2">
+                  <div
+                    className="w-4 h-4 rounded-full"
+                    style={{ backgroundColor: item.color }}
+                  ></div>
+                  <span className="text-gray-700">
+                    {item.name} ({item.value})
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* LINE CHART */}
+        <div className="bg-white rounded-lg shadow-md p-3 w-full">
+          <EventsLineChart />
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 
