@@ -15,7 +15,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     {
-      name: "About Us",
+      name: "About ",
       hasDropdown: true,
       dropdown: [
         { label: "About", path: "/about" },
@@ -36,11 +36,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] md:w-[80%] bg-white/80 backdrop-blur-xl border border-white/30 shadow-[0_8px_30px_rgba(0,0,0,0.1)] rounded-full px-6 py-3 flex items-center justify-between">
+    <nav className="fixed md:top-4   md:left-10 lg:left-1/2 lg:transform lg:-translate-x-1/2  z-50 w-[100%] md:w-[85%] bg-white/80 backdrop-blur-xl border border-white/30 shadow-[0_8px_30px_rgba(0,0,0,0.1)] md:rounded-full px-6 py-3 flex items-center lg:justify-between mx-0 gap-50 md:gap-10">
       
       {/* Logo */}
       <Link to="/" className="flex items-center">
-        <img src="/images/logo.png" className="h-9 w-auto" />
+        <img src="/images/logo.png" className="h-9 w-auto  max-w-dvh" />
       </Link>
 
       {/* Desktop Menu */}
@@ -114,8 +114,7 @@ const Navbar = () => {
           <Link
             to="/login"
             className="px-5 py-2 rounded-full shadow 
-                       bg-gradient-to-r from-indigo-500 to-purple-600 
-                       text-white font-semibold hover:scale-105 transition"
+                       bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold hover:scale-105 transition"
           >
             Login
           </Link>
@@ -131,62 +130,64 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="absolute top-[70px] left-0 w-full bg-white/90 backdrop-blur-xl shadow-lg rounded-2xl py-6 flex flex-col items-center space-y-4">
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
-              <details key={link.name} className="w-full text-center">
-                <summary className="cursor-pointer font-semibold text-gray-700">
-                  {link.name}
-                </summary>
-                <div className="mt-2 flex flex-col space-y-2">
-                  {link.dropdown.map((item) => (
-                    <NavLink
-                      to={item.path}
-                      key={item.label}
-                      onClick={() => setIsOpen(false)}
-                      className={({ isActive }) =>
-                        `text-gray-700 hover:text-indigo-600 ${
-                          isActive ? "text-indigo-600 underline" : ""
-                        }`
-                      }
-                    >
-                      {item.label}
-                    </NavLink>
-                  ))}
-                </div>
-              </details>
-            ) : (
+  <div className="absolute top-[70px] left-0 w-[90%] bg-white/90 backdrop-blur-xl shadow-lg rounded-2xl py-6 flex flex-col items-center space-y-4 text-center overflow-hidden mx-4">
+    {navLinks.map((link) =>
+      link.hasDropdown ? (
+        <details key={link.name} className="w-full text-center items-center">
+          <summary className="cursor-pointer font-semibold text-gray-700 text-center">
+            {link.name}
+          </summary>
+
+          <div className="mt-2 flex flex-col space-y-2 items-center text-center">
+            {link.dropdown.map((item) => (
               <NavLink
-                key={link.name}
-                to={link.path}
+                to={item.path}
+                key={item.label}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `font-semibold transition-all ${
-                    isActive
-                      ? "text-indigo-600 underline"
-                      : "text-gray-700 hover:text-indigo-600"
+                  `text-gray-700 hover:text-indigo-600 ${
+                    isActive ? "text-indigo-600 underline" : ""
                   }`
                 }
               >
-                {link.name}
+                {item.label}
               </NavLink>
-            )
-          )}
+            ))}
+          </div>
+        </details>
+      ) : (
+        <NavLink
+          key={link.name}
+          to={link.path}
+          onClick={() => setIsOpen(false)}
+          className={({ isActive }) =>
+            `font-semibold transition-all ${
+              isActive
+                ? "text-indigo-600 underline"
+                : "text-gray-700 hover:text-indigo-600"
+            }`
+          }
+        >
+          {link.name}
+        </NavLink>
+      )
+    )}
 
-          {/* Mobile Login Button */}
-          {!isLoggedIn && (
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/login");
-              }}
-              className="bg-indigo-600 text-white px-6 py-2 rounded-full"
-            >
-              Login
-            </button>
-          )}
-        </div>
-      )}
+    {!isLoggedIn && (
+      <button
+        onClick={() => {
+          setIsOpen(false);
+          navigate("/login");
+        }}
+        className="bg-indigo-600 text-white px-6 py-2 rounded-full"
+      >
+        Login
+      </button>
+    )}
+  </div>
+)}
+
+      
     </nav>
   );
 };

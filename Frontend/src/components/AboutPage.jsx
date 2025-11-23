@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import conferenceImg from "/images/Aboutus.webp";
 
-const AboutPage = () => {
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
+    }, []);
+
+    return isMobile;
+  };
+
+  const AboutPage = () => {
+  const isMobile = useIsMobile();
   return (
-    <div className="bg-gradient-to-r from-purple-50 via-blue-50 to-pink-50 min-h-screen rounded-lg m-2 flex flex-col justify-center items-center py-16 px-6 md:px-12 transition-all duration-700">
+    <div className="relative bg-gradient-to-r from-purple-50 via-blue-50 to-pink-50 min-h-screen rounded-lg m-2 flex flex-col justify-center items-center py-16  md:px-12 transition-all duration-700 overflow-hidden">
       {/* Section Heading */}
       <motion.h1
         initial={{ opacity: 0, y: -40 }}

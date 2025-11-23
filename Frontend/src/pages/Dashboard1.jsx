@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
         </Link> */}
 
         {/* Back to Website */}
-        <a href="/" className="p-3 rounded-xl transition-all text-blue-100 hover:bg-blue-500 hover:text-white">
+        <a href="/" className="p-3 rounded-xl transition-all text-blue-100 hover:bg-blue-500 hover:text-white ">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
             Dashboard
           </h1>
           <div className="flex items-center space-x-4">
-            <img src="https://i.pravatar.cc/40" alt="profile" className="w-10 h-10 rounded-full shadow" />
+            <img src="https://i.pravatar.cc/40" alt="profile" className="w-10 h-10 rounded-full shadow hidden md:block" />
             <LogoutButton />
           </div>
           

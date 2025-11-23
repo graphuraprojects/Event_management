@@ -29,6 +29,7 @@ import Gallery from "./pages/GalleryPage";
 function App() {
   return (
     <div className="bg-gradient-to-r from-purple-50 via-blue-50 to-pink-50">
+      
       <Router>
         <ScrollToTop />
 

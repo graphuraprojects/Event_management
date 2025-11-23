@@ -7,7 +7,7 @@ import Footer1 from './Footer1';
 
 const Contact = () => {
   return (
-    <section className="w-full">
+    <section className="w-full relative">
         <Navbar />
       <div className="relative w-full h-[65vh] overflow-hidden">
         <img

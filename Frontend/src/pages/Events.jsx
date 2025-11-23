@@ -16,7 +16,6 @@ const Events = () => {
 
   const [editId, setEditId] = useState(null);
 
-  // Fetch all events
   const fetchEvents = async () => {
     const res = await axios.get("http://localhost:5000/api/events/all");
     setEvents(res.data.events);
@@ -26,23 +25,19 @@ const Events = () => {
     fetchEvents();
   }, []);
 
-  // Input change handler
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Add Event
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.post("http://localhost:5000/api/events/add", form);
-
     if (res.data.success) {
       setOpenModal(false);
       fetchEvents();
     }
   };
 
-  // Edit Event – open modal with data
   const openEditModal = (event) => {
     setIsEdit(true);
     setEditId(event._id);
@@ -56,15 +51,12 @@ const Events = () => {
     setOpenModal(true);
   };
 
-  // Update Event
   const handleUpdate = async (e) => {
     e.preventDefault();
-
     const res = await axios.put(
       `http://localhost:5000/api/events/update/${editId}`,
       form
     );
-
     if (res.data.success) {
       setOpenModal(false);
       setIsEdit(false);
@@ -90,12 +82,14 @@ const Events = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 p-2 sm:p-4">
 
       {/* Header */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold text-gray-800">All Events</h2>
+      <div className="bg-white rounded-lg shadow p-4 sm:p-6">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
+            All Events
+          </h2>
 
           <button
             onClick={() => {
@@ -109,40 +103,40 @@ const Events = () => {
               });
               setOpenModal(true);
             }}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-700 transition text-sm sm:text-base"
           >
-            + Add New Event
+            + Add Event
           </button>
         </div>
 
         {/* Table */}
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-200">
-                <th className="py-3 px-4 text-gray-600">Event Name</th>
-                <th className="py-3 px-4 text-gray-600">Type</th>
-                <th className="py-3 px-4 text-gray-600">Date</th>
-                <th className="py-3 px-4 text-gray-600">Attendees</th>
-                <th className="py-3 px-4 text-gray-600">Status</th>
-                <th className="py-3 px-4 text-gray-600">Actions</th>
+              <tr className="border-b border-gray-200 text-gray-600 text-xs sm:text-sm">
+                <th className="py-2 px-3">Event Name</th>
+                <th className="py-2 px-3">Type</th>
+                <th className="py-2 px-3">Date</th>
+                <th className="py-2 px-3">Attendees</th>
+                <th className="py-2 px-3">Status</th>
+                <th className="py-2 px-3">Actions</th>
               </tr>
             </thead>
             <tbody>
               {events.map((event) => (
                 <tr key={event._id} className="border-b hover:bg-gray-50">
-                  <td className="py-4 px-4">{event.name}</td>
+                  <td className="py-3 px-3">{event.name}</td>
 
-                  <td className="py-4 px-4">
-                    <span className={`px-2 py-1 rounded-full text-sm ${getTypeColor(event.type)}`}>
+                  <td className="py-3 px-3">
+                    <span className={`px-2 py-1 rounded-full text-xs ${getTypeColor(event.type)}`}>
                       {event.type}
                     </span>
                   </td>
 
-                  <td className="py-4 px-4">{event.date}</td>
-                  <td className="py-4 px-4">{event.attendees}</td>
+                  <td className="py-3 px-3">{event.date}</td>
+                  <td className="py-3 px-3">{event.attendees}</td>
 
-                  <td className="py-4 px-4">
+                  <td className="py-3 px-3">
                     <span className={`px-2 py-1 rounded-full text-xs font-bold ${getStatusColor(event.status)}`}>
                       {event.status}
                     </span>
@@ -150,7 +144,7 @@ const Events = () => {
 
                   <td
                     onClick={() => openEditModal(event)}
-                    className="py-4 px-4 text-blue-600 hover:text-blue-800 cursor-pointer"
+                    className="py-3 px-3 text-blue-600 hover:text-blue-800 cursor-pointer text-sm"
                   >
                     Edit
                   </td>
@@ -163,85 +157,86 @@ const Events = () => {
 
       {/* Modal */}
       {openModal && (
-  <div className="fixed inset-0 flex justify-center items-center backdrop-blur-sm bg-transparent">
-    <div className="bg-white p-6 rounded-xl shadow-2xl w-96 border border-gray-200">
+        <div className="fixed inset-0 flex justify-center items-center bg-black/30 backdrop-blur-sm p-4">
+          <div className="bg-white p-5 sm:p-6 rounded-xl shadow-2xl w-11/12 sm:w-96 border border-gray-200">
 
-      <h2 className="text-xl font-semibold mb-4">
-        {isEdit ? "Edit Event" : "Add New Event"}
-      </h2>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4">
+              {isEdit ? "Edit Event" : "Add New Event"}
+            </h2>
 
-      <form onSubmit={isEdit ? handleUpdate : handleSubmit} className="space-y-4">
+            <form onSubmit={isEdit ? handleUpdate : handleSubmit} className="space-y-3">
 
-        <input
-          type="text"
-          name="name"
-          value={form.name}
-          placeholder="Event Name"
-          className="w-full border p-2 rounded"
-          onChange={handleChange}
-        />
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                placeholder="Event Name"
+                className="w-full border p-2 rounded text-sm"
+                onChange={handleChange}
+              />
 
-        <select
-          name="type"
-          value={form.type}
-          className="w-full border p-2 rounded"
-          onChange={handleChange}
-        >
-          <option value="Corporate">Corporate</option>
-          <option value="Wedding">Wedding</option>
-          <option value="Cultural">Cultural</option>
-        </select>
+              <select
+                name="type"
+                value={form.type}
+                className="w-full border p-2 rounded text-sm"
+                onChange={handleChange}
+              >
+                <option value="Corporate">Corporate</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Cultural">Cultural</option>
+              </select>
 
-        <input
-          type="date"
-          name="date"
-          value={form.date}
-          className="w-full border p-2 rounded"
-          onChange={handleChange}
-        />
+              <input
+                type="date"
+                name="date"
+                value={form.date}
+                className="w-full border p-2 rounded text-sm"
+                onChange={handleChange}
+              />
 
-        <input
-          type="number"
-          name="attendees"
-          value={form.attendees}
-          placeholder="Attendees"
-          className="w-full border p-2 rounded"
-          onChange={handleChange}
-        />
+              <input
+                type="number"
+                name="attendees"
+                value={form.attendees}
+                placeholder="Attendees"
+                className="w-full border p-2 rounded text-sm"
+                onChange={handleChange}
+              />
 
-        <select
-          name="status"
-          value={form.status}
-          className="w-full border p-2 rounded"
-          onChange={handleChange}
-        >
-          <option value="Upcoming">Upcoming</option>
-          <option value="Ongoing">Ongoing</option>
-          <option value="Completed">Completed</option>
-        </select>
+              <select
+                name="status"
+                value={form.status}
+                className="w-full border p-2 rounded text-sm"
+                onChange={handleChange}
+              >
+                <option value="Upcoming">Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+              </select>
 
-        {/* Buttons */}
-        <div className="flex justify-end gap-3">
-          <button
-            type="button"
-            onClick={() => setOpenModal(false)}
-            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-          >
-            Cancel
-          </button>
+              {/* Buttons */}
+              <div className="flex justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setOpenModal(false)}
+                  className="px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 text-sm"
+                >
+                  Cancel
+                </button>
 
-          <button
-            type="submit"
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            {isEdit ? "Update Event" : "Add Event"}
-          </button>
+                <button
+                  type="submit"
+                  className="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+                >
+                  {isEdit ? "Update" : "Add"}
+                </button>
+              </div>
+
+            </form>
+          </div>
         </div>
+      )}
 
-      </form>
-    </div>
-  </div>
-)}
     </div>
   );
 };

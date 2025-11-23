@@ -9,7 +9,7 @@ import hero4 from "/images/32.webp";
 
 const Hero = () => {
   return (
-    <section className="relative rounded-lg min-h-screen w-full bg-gradient-to-r from-purple-50 via-blue-50 to-pink-50 flex pt-2 justify-center items-center overflow-hidden px-4 md:px-8 lg:px-16">
+    <section className="relative rounded-lg min-h-screen w-full bg-gradient-to-r from-purple-50 via-blue-50 to-pink-50 flex  justify-center items-center overflow-hidden px-2 md:px-8 lg:px-16">
       <motion.div
           className="absolute top-[-15%] left-[-10%] w-[500px] h-[500px] bg-purple-700/40 blur-[180px] rounded-full z-0"
           animate={{ x: [0, 50, -30], y: [0, -40, 20] }}

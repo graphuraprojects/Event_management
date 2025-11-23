@@ -38,8 +38,10 @@ const Login = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
-      <Navbar />
+      
       <div className="bg-white p-10 rounded-3xl shadow-xl w-full max-w-md">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
           Login
@@ -83,6 +85,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 
