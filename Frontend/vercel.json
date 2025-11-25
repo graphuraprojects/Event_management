@@ -1,18 +1,7 @@
 {
-<<<<<<< HEAD
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://event-management-u37j.onrender.com/api/$1" },
+    { "source": "/api/(.*)", "destination": "https://event-management-u37j.onrender.com/api/$1"},
 
     { "source": "/(.*)", "destination": "/index.html" }
-=======
-  "version": 2,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html",
-      "buildCommand": "npm run build",
-        "outputDirectory": "build"
-    }
->>>>>>> 93d3d74669cf977894f0d508ddadbf3f972f3f1e
   ]
 }
