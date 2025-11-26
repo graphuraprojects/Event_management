@@ -8,6 +8,7 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
 import { galleryData } from "./GalleryPage";
+import Navbar from "../components/Navbar";
 
 const GalleryDetailsPage = () => {
   const { category } = useParams();
@@ -18,6 +19,8 @@ const GalleryDetailsPage = () => {
   const backgroundImage = location.state?.backgroundImage || images[0]; // Default to first image
 
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen bg-white">
       {/* Banner */}
       <div
@@ -68,6 +71,8 @@ const GalleryDetailsPage = () => {
         </LightGallery>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

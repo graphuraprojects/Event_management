@@ -13,7 +13,7 @@ const Section2 = () => {
           <ul className='text-gray-300'>
             <li className='flex place-items-center gap-2 mb-2'>
               <MapPin className='h-5'/>
-              Gurgaon, Haryana 
+              Graphura India Private Limited, near Renu Sharma Foundation, Pataudi, Gurgaon, Haryana 122503
             </li>
             <li className='flex place-items-center gap-2 mb-2'>
               <Phone className='h-5'/>
@@ -59,11 +59,11 @@ const Section2 = () => {
           <ul className='text-gray-300'>
             <li className='hover:text-white hover:font-semibold cursor-pointer hover:pl-[9px] transition duration-150 ease-in-out flex place-items-center mb-1'>
               <ChevronRight className='h-5' />
-              <Link to="/event/corporateevents" className=''>Corporate Event</Link>
+              <Link to="/tech-corporate" className=''>Corporate Event</Link>
             </li>  
             <li className='hover:text-white hover:font-semibold cursor-pointer hover:pl-[9px] transition duration-150 ease-in-out flex place-items-center mb-1'>
               <ChevronRight className='h-5' />
-              <Link to="/event/cultural" className=''>Cultural Event</Link>
+              <Link to="/cultural" className=''>Cultural Event</Link>
             </li>  
             <li className='hover:text-white cursor-pointer hover:pl-[9px] transition duration-150 ease-in-out flex place-items-center mb-1'>
               <ChevronRight className='h-5' />

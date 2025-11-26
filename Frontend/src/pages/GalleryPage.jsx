@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "./Footer1";
 
 const categories = [
   "All",
@@ -75,7 +76,7 @@ const Gallery = () => {
   return (
     <>
     <Navbar />
-    <section className="py-30 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 min-h-screen ">
+    <section className="pt-25 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 min-h-screen ">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
@@ -152,6 +153,7 @@ const Gallery = () => {
         ))}
       </div>
     </section>
+    <Footer />
     </>
   );
 };

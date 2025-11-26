@@ -56,7 +56,7 @@ const Form = () => {
             </div>
             <div>
               <h4 className="font-semibold text-gray-800">Office</h4>
-              <p className="text-gray-600">near Renu Sharma Foundation, Pataudi, Gurgaon, Haryana 122503</p>
+              <p className="text-gray-600">Graphura India Private Limited, near Renu Sharma Foundation, Pataudi, Gurgaon, Haryana 122503</p>
             </div>
           </div>
 
