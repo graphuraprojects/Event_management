@@ -9,6 +9,7 @@ import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
 import { galleryData } from "./GalleryPage";
 import Navbar from "../components/Navbar";
+import Footer from "../pages/Footer1";
 
 const GalleryDetailsPage = () => {
   const { category } = useParams();
