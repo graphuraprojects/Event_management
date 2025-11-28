@@ -16,7 +16,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "nodemon server.js",
+=======
+    "start": "node server.js",
+>>>>>>> 0ef9166a86fb95088b27be8eca73f54232190dcb
     "dev": "node server.js"
   },
   "author": "",

@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import Navbar from "./Navbar";
+import Footer from "../pages/Footer1";
 
 const CulturalDetails = () => {
   const location = useLocation();
@@ -8,7 +10,9 @@ const CulturalDetails = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-linear-to-r from-purple-100 via-blue-100 to-pink-100">
+    <>
+    <Navbar />
+    <div className="bg-linear-to-r from-purple-100 via-blue-100 to-pink-100 ">
       <section className="relative h-[40vh] lg:h-[50vh] overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
         <img
           src={event.image}
@@ -141,6 +145,8 @@ const CulturalDetails = () => {
         </motion.div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 };
 

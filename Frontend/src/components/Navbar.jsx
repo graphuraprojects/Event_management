@@ -36,7 +36,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed md:top-4   md:left-10 lg:left-1/2 lg:transform lg:-translate-x-1/2  z-50 w-[100%] md:w-[85%] bg-white/80 backdrop-blur-xl border border-white/30 shadow-[0_8px_30px_rgba(0,0,0,0.1)] md:rounded-full px-6 py-3 flex items-center lg:justify-between mx-0 gap-50 md:gap-10">
+    <nav className="fixed md:top-4 sm:w-[20%]  md:left-10 lg:left-1/2 lg:transform lg:-translate-x-1/2  z-50 w-[100%] md:w-[85%] bg-white/80 backdrop-blur-xl border border-white/30 shadow-[0_8px_30px_rgba(0,0,0,0.1)] md:rounded-full px-6 py-3 flex items-center lg:justify-between mx-0 gap-50 md:gap-10">
       
       {/* Logo */}
       <Link to="/" className="flex items-center">
