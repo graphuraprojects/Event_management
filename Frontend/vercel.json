@@ -1,12 +1,8 @@
+
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://event-management-u37j.onrender.com/api/$1"},
+    { "source": "/api/(.*)", "destination": "https://event-management-u37j.onrender.com/api/$1" },
 
-<<<<<<< HEAD
     { "source": "/(.*)", "destination": "/index.html" }
   ]
-=======
-    { "source": "/(.*)", "destination": "/index.html"}
-]
->>>>>>> 0ef9166a86fb95088b27be8eca73f54232190dcb
 }
